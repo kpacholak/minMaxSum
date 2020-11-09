@@ -16,7 +16,7 @@ func findMinMaxSum(_ arr: [Int]) {
     var index = 0
     
     for i in arr {
-        sum += arr[index]
+        sum += i
         if i < currentMin {
             currentMin = i
         } else if i > currentMax {
