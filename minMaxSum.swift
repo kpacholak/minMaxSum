@@ -1,4 +1,3 @@
-
 // Mini-Max Sum algorithm problem
 // https://www.hackerrank.com/challenges/mini-max-sum/problem
 // Swift solution
@@ -7,33 +6,31 @@
 
 let arr = [3, 2, 1, 4, 5]
 
-func znajdzMinMaxSume(_ arr: [Int]) {
+func findMinMaxSum(_ arr: [Int]) {
     
-    var tymczasowyMax = arr[0]
-    var tymczasowyMin = arr[0]
-    var minimalnaSuma = 0
-    var maksymalnaSuma = 0
+    var currentMax = arr[0]
+    var currentMin = arr[0]
+    var minSum = 0
+    var maxSum = 0
+    var sum = 0
     
     for i in arr {
-        if i < tymczasowyMin {
-            tymczasowyMin = i
-        } else if i > tymczasowyMax {
-            tymczasowyMax = i
+        sum += arr[i-1]
+        if i < currentMin {
+            currentMin = i
+        } else if i > currentMax {
+            currentMax = i
         }
     }
     
-    var suma = 0
+  
     
-    for j in 0..<arr.count {
-        suma += arr[j]
-    }
+    minSum = sum-currentMax
+    maxSum = sum-currentMin
     
-    minimalnaSuma = suma-tymczasowyMax
-    maksymalnaSuma = suma-tymczasowyMin
-    
-    print(minimalnaSuma, maksymalnaSuma)
+    print(minSum, maxSum)
 }
 
 
-znajdzMinMaxSume(arr)
+findMinMaxSum(arr)
 
